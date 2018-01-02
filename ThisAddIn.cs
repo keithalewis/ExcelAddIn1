@@ -13,10 +13,26 @@ namespace ExcelAddIn1
     {
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            // For each *.xll ...
+            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            this.Application.RegisterXLL(baseDir + "\\xllmonte.xll");
+            //Globals.ThisAddIn.Application.RegisterXLL(baseDir + "\\xllmonte.xll");
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            
+        }
+
+        public void RunMacro(object macro)
+        {
+            object m = Type.Missing;
+            this.Application.Run(macro,
+                m, m, m, m, m, m,
+                m, m, m, m, m, m,
+                m, m, m, m, m, m,
+                m, m, m, m, m, m,
+                m, m, m, m, m, m);
         }
 
         #region VSTO generated code
